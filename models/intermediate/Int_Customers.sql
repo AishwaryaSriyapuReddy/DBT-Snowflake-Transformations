@@ -5,7 +5,8 @@ with customers as (
     select
         id as customer_id,
         first_name,
-        last_name
+        last_name,
+        {{ full_name('first_name','last_name') }} AS customer_name
     from {{ ref('Stg_Customer') }}
 
 ),
