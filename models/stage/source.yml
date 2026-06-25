@@ -1,0 +1,18 @@
+sources:
+    - name: jaffle_shop # Give any name to data source
+      description: This is a replica of the Postgres database.
+      database: raw  # snowflake database name
+      schema: jaffle_shop # snowflake schema name
+      tables:
+          - name: customers
+            description: One record per customer.
+          - name: orders
+            description: One record per order. Includes cancelled and deleted orders.
+
+    - name: stripe
+      database: raw               # The Snowflake database name
+      schema: stripe              # The Snowflake schema name
+      description: "Raw ingestion data from our Stripe payment processor."
+      tables:
+        - name: payment
+          description: "A raw table containing all customer transactions and checkout attempts."
